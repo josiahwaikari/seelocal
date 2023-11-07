@@ -21,9 +21,15 @@ const Navbar = async () => {
           </Button>
         </div>
         <nav className="flex items-center space-x-1 text-sm font-medium text-gray-800">
-          <Button>
+    <Link
+              href="/register"
+              className={buttonVariants({
+                variant: "default",
+                className: "text-white pr-0",
+              })}
+            >
             <PlusCircle className="mr-2 h-4 w-4" /> Add Listing
-          </Button>
+          </Link>
           {session?.user ? (
             <UserNav user={session.user} />
           ) : (
@@ -41,33 +47,6 @@ const Navbar = async () => {
         </nav>
       </div>
     </nav>
-  );
-  return (
-    <div className="relative z-20">
-      <div className="container flex justify-between items-center py-6">
-        <div className="flex items-center space-x-2">
-          <Button variant="link" className="pl-0">
-            <img src="/test.png" alt="Logo" width={200} height={50} />
-            {/* <h2 className="text-white text-2xl ml-3 font-bold ">
-        Seelocal
-      </h2> */}
-          </Button>
-        </div>
-        <nav className="flex items-center space-x-1 text-sm font-medium text-gray-800">
-          <Button>
-            <PlusCircle className="mr-2 h-4 w-4" /> Add Listing
-          </Button>
-          {session?.user ? (
-            <UserNav user={session.user} />
-          ) : (
-            <Button variant="link" className="text-white pr-0">
-              <User className="mr-2 h-4 w-4" />
-              Login / Register
-            </Button>
-          )}
-        </nav>
-      </div>
-    </div>
   );
 };
 
